@@ -79,8 +79,9 @@ class PartnerForm(tk.Frame):
             for i, (_, info_text) in enumerate(fields, start=1):
                 self.create_partner_info_label(_, info_text, i)
 
+    # Создание текстового поля с партнерской информацией
     def create_partner_info_label(self, info_name: str, info_text: str, text_row: int):
-        """Creates a label for partner information fields."""
+        ''' Создание текстового поля с информацией о партнере '''
         (ttk.Label(self, text=f"{info_name}: {info_text}", relief="solid", background="#f4e8d3",
                   font=const['label_font_normal'])
 
