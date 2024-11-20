@@ -24,15 +24,15 @@ class MainWindow(Tk):
         Tk.__init__(self)
         ''' Создание формы главного окна '''
         # Название окна
-        self.title("Мастре пол")
+        self.title("Мастер пол")
 
         # Инициализация класса БД
         self.database = Database()
         self._frame = None
 
         # Установка фотографии
-        icon = PhotoImage(file="icons/app_icon_png.png")
-        self.iconphoto(False, icon)
+        # icon = PhotoImage(file="./icons/app_icon_png.png")
+        # self.iconphoto(False, icon)
         # Установка стартовых значений W/H и их пределов редактирования
         self.geometry("600x600")
         self.minsize(550, 450)
@@ -68,7 +68,8 @@ class MainWindow(Tk):
     # Открытие окна PartnerForm
     def open_partner_form(self, partner_name: str=None):
         ''' Открытие окна PartnerForm
-        partner_name: str -> Имя интересующего партнера'''
+        partner_name: str -> Имя интересующего партнера '''
+
         # Запись в статический класс имени партнера
         if partner_name:
             Partner.set_name(partner_name)
@@ -80,6 +81,7 @@ class MainWindow(Tk):
 
         # Открытие окна
         self.show_frame(PartnerForm)
+        return "correct"
 
     # Открытие окна обновления информации о партнере
     def open_partner_update_form(self, partner_name: str=None):
@@ -91,7 +93,7 @@ class MainWindow(Tk):
         # Выбор из списка фреймов - требуемый фрейм
         update_frame = self.frames[UpdatePartnerForm]
 
-        # Запуск функции выгрузки инфомрации про пользователя
+        # Запуск функции выгрузки информации про пользователя
         update_frame.set_partner_update_data()
 
         # Открытие окна
